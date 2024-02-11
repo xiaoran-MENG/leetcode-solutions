@@ -6,7 +6,7 @@ public class MaximumSubarray {
             int n = nums.length;
             int sum = 0;
             int result = Integer.MIN_VALUE;
-            for (int i = 0; i < n - 1; i++) {
+            for (int i = 0; i < n - 1; i++) { // O(n)
                 sum += nums[0];
                 result = Math.max(result, sum);
                 if (sum < 0) sum = 0;
@@ -15,6 +15,8 @@ public class MaximumSubarray {
         }
     }
 
+    // S(n) = O(log(n))
+    // T(n) = O(nlog(n))
     static class DivideAndConquer {
         public int maxSubArray(int[] nums) {
             return dfs(nums, 0, nums.length - 1);
